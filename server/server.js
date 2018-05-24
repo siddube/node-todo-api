@@ -7,6 +7,7 @@ const {Todo} = require('./models/todo');
 const {User} = require('./models/user');
 
 var app = express();
+var port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
@@ -43,8 +44,8 @@ app.get('/todos/:id', (req, res) => {
   }, (e) => res.status(400).send());
 });
 
-app.listen(3000, () => {
-  console.log('App running on localhost:3000')
+app.listen(port, () => {
+  console.log(`App running on ${port}`);
 });
 
 module.exports = {app};
